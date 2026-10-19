@@ -11,8 +11,24 @@
  *        Iterá con puntero (char **arg), no con indice entero.
  */
 
+
+
+
+
 int main(int argc, char *argv[]) {
-    (void)argc; (void)argv;
-    /* TODO */
+    int iguales = 1;
+
+    if (argc < 2) {
+        iguales = 0;
+    } else {
+        for (char **arg = argv + 2; *arg != NULL; arg++) {
+            if (!AreEqual(argv[1], *arg)) {
+                iguales = 0;
+                break;
+            }
+        }
+    }
+
+    printf("%d\n", iguales);
     return 0;
 }
